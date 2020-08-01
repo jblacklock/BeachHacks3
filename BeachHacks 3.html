@@ -1,0 +1,370 @@
+<html>
+<link href='navstyle.css' rel='stylesheet'>
+<link href='BeachHacksUTTT.css' rel='stylesheet'>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="horizontalAdjustment.js"></script>
+<script type="text/javascript" src="BeachHacksUTTT.js"></script>
+<link href='pageTemplate.css' rel='stylesheet'>
+<meta charset="UTF-8">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="flaviconprime3.png" />
+    <title>
+        Ult-Tic-Tac-Toe
+    </title>
+
+</head>
+
+<!-- google-->
+<meta name="google-signin-client_id" content="423403640724-4qg2iimt8unje7cafcmnnh0b8ka656dd.apps.googleusercontent.com">
+</meta>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="googleLogin2.js"></script>
+
+<style type="text/css">
+    body {
+        /* background: url('UTTTBackground.jpg') no-repeat; */
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        font-family: Arial;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        margin-top: -5px;
+        /* overflow-y: scroll; */
+    }
+
+    #pageBuffer {
+        height: 90.5%;
+
+    }
+
+    #usernameSpan {
+        left: 0px;
+        transform: none;
+    }
+</style>
+
+<body id="pageBody" onload="initialGameCondition(), init()" class="mainContentBackground">
+
+
+
+    <div id="title"> ULT - TIC - TAC - TOE</div>
+
+    <div id="wrapt">
+        <div id="artcontainer">
+            <div id="art">
+                <div id="Victor" style="display:none; height:100%; width:100%; background-color:black; color: red;">
+                </div>
+                <div class="grid-container" id="GameBoard">
+                    <div class="ggrid-item , ga1" id="ga1">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a11id" onclick="makeMove('a11id')"
+                                onmouseover="colorChange('a11id')" onmouseleave="colorLeave('a11id')"></div>
+                            <div class="grid-item , b1" id="b11id" onclick="makeMove('b11id')"
+                                onmouseover="colorChange('b11id')" onmouseleave="colorLeave('b11id')"></div>
+                            <div class="grid-item , c1" id="c11id" onclick="makeMove('c11id')"
+                                onmouseover="colorChange('c11id')" onmouseleave="colorLeave('c11id')"></div>
+                            <div class="grid-item , a2" id="a21id" onclick="makeMove('a21id')"
+                                onmouseover="colorChange('a21id')" onmouseleave="colorLeave('a21id')"></div>
+                            <div class="grid-item , b2" id="b21id" onclick="makeMove('b21id')"
+                                onmouseover="colorChange('b21id')" onmouseleave="colorLeave('b21id')"></div>
+                            <div class="grid-item , c2" id="c21id" onclick="makeMove('c21id')"
+                                onmouseover="colorChange('c21id')" onmouseleave="colorLeave('c21id')"></div>
+                            <div class="grid-item , a3" id="a31id" onclick="makeMove('a31id')"
+                                onmouseover="colorChange('a31id')" onmouseleave="colorLeave('a31id')"></div>
+                            <div class="grid-item , b3" id="b31id" onclick="makeMove('b31id')"
+                                onmouseover="colorChange('b31id')" onmouseleave="colorLeave('b31id')"></div>
+                            <div class="grid-item , c3" id="c31id" onclick="makeMove('c31id')"
+                                onmouseover="colorChange('c31id')" onmouseleave="colorLeave('c31id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , gb1" id="gb1">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a12id" onclick="makeMove('a12id')"
+                                onmouseover="colorChange('a12id')" onmouseleave="colorLeave('a12id')"></div>
+                            <div class="grid-item , b1" id="b12id" onclick="makeMove('b12id')"
+                                onmouseover="colorChange('b12id')" onmouseleave="colorLeave('b12id')"></div>
+                            <div class="grid-item , c1" id="c12id" onclick="makeMove('c12id')"
+                                onmouseover="colorChange('c12id')" onmouseleave="colorLeave('c12id')"></div>
+                            <div class="grid-item , a2" id="a22id" onclick="makeMove('a22id')"
+                                onmouseover="colorChange('a22id')" onmouseleave="colorLeave('a22id')"></div>
+                            <div class="grid-item , b2" id="b22id" onclick="makeMove('b22id')"
+                                onmouseover="colorChange('b22id')" onmouseleave="colorLeave('b22id')"></div>
+                            <div class="grid-item , c2" id="c22id" onclick="makeMove('c22id')"
+                                onmouseover="colorChange('c22id')" onmouseleave="colorLeave('c22id')"></div>
+                            <div class="grid-item , a3" id="a32id" onclick="makeMove('a32id')"
+                                onmouseover="colorChange('a32id')" onmouseleave="colorLeave('a32id')"></div>
+                            <div class="grid-item , b3" id="b32id" onclick="makeMove('b32id')"
+                                onmouseover="colorChange('b32id')" onmouseleave="colorLeave('b32id')"></div>
+                            <div class="grid-item , c3" id="c32id" onclick="makeMove('c32id')"
+                                onmouseover="colorChange('c32id')" onmouseleave="colorLeave('c32id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , gc1" id="gc1">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a13id" onclick="makeMove('a13id')"
+                                onmouseover="colorChange('a13id')" onmouseleave="colorLeave('a13id')"></div>
+                            <div class="grid-item , b1" id="b13id" onclick="makeMove('b13id')"
+                                onmouseover="colorChange('b13id')" onmouseleave="colorLeave('b13id')"></div>
+                            <div class="grid-item , c1" id="c13id" onclick="makeMove('c13id')"
+                                onmouseover="colorChange('c13id')" onmouseleave="colorLeave('c13id')"></div>
+                            <div class="grid-item , a2" id="a23id" onclick="makeMove('a23id')"
+                                onmouseover="colorChange('a23id')" onmouseleave="colorLeave('a23id')"></div>
+                            <div class="grid-item , b2" id="b23id" onclick="makeMove('b23id')"
+                                onmouseover="colorChange('b23id')" onmouseleave="colorLeave('b23id')"></div>
+                            <div class="grid-item , c2" id="c23id" onclick="makeMove('c23id')"
+                                onmouseover="colorChange('c23id')" onmouseleave="colorLeave('c23id')"></div>
+                            <div class="grid-item , a3" id="a33id" onclick="makeMove('a33id')"
+                                onmouseover="colorChange('a33id')" onmouseleave="colorLeave('a33id')"></div>
+                            <div class="grid-item , b3" id="b33id" onclick="makeMove('b33id')"
+                                onmouseover="colorChange('b33id')" onmouseleave="colorLeave('b33id')"></div>
+                            <div class="grid-item , c3" id="c33id" onclick="makeMove('c33id')"
+                                onmouseover="colorChange('c33id')" onmouseleave="colorLeave('c33id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , ga2" id="ga2">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a14id" onclick="makeMove('a14id')"
+                                onmouseover="colorChange('a14id')" onmouseleave="colorLeave('a14id')"></div>
+                            <div class="grid-item , b1" id="b14id" onclick="makeMove('b14id')"
+                                onmouseover="colorChange('b14id')" onmouseleave="colorLeave('b14id')"></div>
+                            <div class="grid-item , c1" id="c14id" onclick="makeMove('c14id')"
+                                onmouseover="colorChange('c14id')" onmouseleave="colorLeave('c14id')"></div>
+                            <div class="grid-item , a2" id="a24id" onclick="makeMove('a24id')"
+                                onmouseover="colorChange('a24id')" onmouseleave="colorLeave('a24id')"></div>
+                            <div class="grid-item , b2" id="b24id" onclick="makeMove('b24id')"
+                                onmouseover="colorChange('b24id')" onmouseleave="colorLeave('b24id')"></div>
+                            <div class="grid-item , c2" id="c24id" onclick="makeMove('c24id')"
+                                onmouseover="colorChange('c24id')" onmouseleave="colorLeave('c24id')"></div>
+                            <div class="grid-item , a3" id="a34id" onclick="makeMove('a34id')"
+                                onmouseover="colorChange('a34id')" onmouseleave="colorLeave('a34id')"></div>
+                            <div class="grid-item , b3" id="b34id" onclick="makeMove('b34id')"
+                                onmouseover="colorChange('b34id')" onmouseleave="colorLeave('b34id')"></div>
+                            <div class="grid-item , c3" id="c34id" onclick="makeMove('c34id')"
+                                onmouseover="colorChange('c34id')" onmouseleave="colorLeave('c34id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , gb2" id="gb2">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a15id" onclick="makeMove('a15id')"
+                                onmouseover="colorChange('a15id')" onmouseleave="colorLeave('a15id')"></div>
+                            <div class="grid-item , b1" id="b15id" onclick="makeMove('b15id')"
+                                onmouseover="colorChange('b15id')" onmouseleave="colorLeave('b15id')"></div>
+                            <div class="grid-item , c1" id="c15id" onclick="makeMove('c15id')"
+                                onmouseover="colorChange('c15id')" onmouseleave="colorLeave('c15id')"></div>
+                            <div class="grid-item , a2" id="a25id" onclick="makeMove('a25id')"
+                                onmouseover="colorChange('a25id')" onmouseleave="colorLeave('a25id')"></div>
+                            <div class="grid-item , b2" id="b25id" onclick="makeMove('b25id')"
+                                onmouseover="colorChange('b25id')" onmouseleave="colorLeave('b25id')"></div>
+                            <div class="grid-item , c2" id="c25id" onclick="makeMove('c25id')"
+                                onmouseover="colorChange('c25id')" onmouseleave="colorLeave('c25id')"></div>
+                            <div class="grid-item , a3" id="a35id" onclick="makeMove('a35id')"
+                                onmouseover="colorChange('a35id')" onmouseleave="colorLeave('a35id')"></div>
+                            <div class="grid-item , b3" id="b35id" onclick="makeMove('b35id')"
+                                onmouseover="colorChange('b35id')" onmouseleave="colorLeave('b35id')"></div>
+                            <div class="grid-item , c3" id="c35id" onclick="makeMove('c35id')"
+                                onmouseover="colorChange('c35id')" onmouseleave="colorLeave('c35id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , gc2" id="gc2">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a16id" onclick="makeMove('a16id')"
+                                onmouseover="colorChange('a16id')" onmouseleave="colorLeave('a16id')"></div>
+                            <div class="grid-item , b1" id="b16id" onclick="makeMove('b16id')"
+                                onmouseover="colorChange('b16id')" onmouseleave="colorLeave('b16id')"></div>
+                            <div class="grid-item , c1" id="c16id" onclick="makeMove('c16id')"
+                                onmouseover="colorChange('c16id')" onmouseleave="colorLeave('c16id')"></div>
+                            <div class="grid-item , a2" id="a26id" onclick="makeMove('a26id')"
+                                onmouseover="colorChange('a26id')" onmouseleave="colorLeave('a26id')"></div>
+                            <div class="grid-item , b2" id="b26id" onclick="makeMove('b26id')"
+                                onmouseover="colorChange('b26id')" onmouseleave="colorLeave('b26id')"></div>
+                            <div class="grid-item , c2" id="c26id" onclick="makeMove('c26id')"
+                                onmouseover="colorChange('c26id')" onmouseleave="colorLeave('c26id')"></div>
+                            <div class="grid-item , a3" id="a36id" onclick="makeMove('a36id')"
+                                onmouseover="colorChange('a36id')" onmouseleave="colorLeave('a36id')"></div>
+                            <div class="grid-item , b3" id="b36id" onclick="makeMove('b36id')"
+                                onmouseover="colorChange('b36id')" onmouseleave="colorLeave('b36id')"></div>
+                            <div class="grid-item , c3" id="c36id" onclick="makeMove('c36id')"
+                                onmouseover="colorChange('c36id')" onmouseleave="colorLeave('c36id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , ga3" id="ga3">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a17id" onclick="makeMove('a17id')"
+                                onmouseover="colorChange('a17id')" onmouseleave="colorLeave('a17id')"></div>
+                            <div class="grid-item , b1" id="b17id" onclick="makeMove('b17id')"
+                                onmouseover="colorChange('b17id')" onmouseleave="colorLeave('b17id')"></div>
+                            <div class="grid-item , c1" id="c17id" onclick="makeMove('c17id')"
+                                onmouseover="colorChange('c17id')" onmouseleave="colorLeave('c17id')"></div>
+                            <div class="grid-item , a2" id="a27id" onclick="makeMove('a27id')"
+                                onmouseover="colorChange('a27id')" onmouseleave="colorLeave('a27id')"></div>
+                            <div class="grid-item , b2" id="b27id" onclick="makeMove('b27id')"
+                                onmouseover="colorChange('b27id')" onmouseleave="colorLeave('b27id')"></div>
+                            <div class="grid-item , c2" id="c27id" onclick="makeMove('c27id')"
+                                onmouseover="colorChange('c27id')" onmouseleave="colorLeave('c27id')"></div>
+                            <div class="grid-item , a3" id="a37id" onclick="makeMove('a37id')"
+                                onmouseover="colorChange('a37id')" onmouseleave="colorLeave('a37id')"></div>
+                            <div class="grid-item , b3" id="b37id" onclick="makeMove('b37id')"
+                                onmouseover="colorChange('b37id')" onmouseleave="colorLeave('b37id')"></div>
+                            <div class="grid-item , c3" id="c37id" onclick="makeMove('c37id')"
+                                onmouseover="colorChange('c37id')" onmouseleave="colorLeave('c37id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , gb3" id="gb3">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a18id" onclick="makeMove('a18id')"
+                                onmouseover="colorChange('a18id')" onmouseleave="colorLeave('a18id')"></div>
+                            <div class="grid-item , b1" id="b18id" onclick="makeMove('b18id')"
+                                onmouseover="colorChange('b18id')" onmouseleave="colorLeave('b18id')"></div>
+                            <div class="grid-item , c1" id="c18id" onclick="makeMove('c18id')"
+                                onmouseover="colorChange('c18id')" onmouseleave="colorLeave('c18id')"></div>
+                            <div class="grid-item , a2" id="a28id" onclick="makeMove('a28id')"
+                                onmouseover="colorChange('a28id')" onmouseleave="colorLeave('a28id')"></div>
+                            <div class="grid-item , b2" id="b28id" onclick="makeMove('b28id')"
+                                onmouseover="colorChange('b28id')" onmouseleave="colorLeave('b28id')"></div>
+                            <div class="grid-item , c2" id="c28id" onclick="makeMove('c28id')"
+                                onmouseover="colorChange('c28id')" onmouseleave="colorLeave('c28id')"></div>
+                            <div class="grid-item , a3" id="a38id" onclick="makeMove('a38id')"
+                                onmouseover="colorChange('a38id')" onmouseleave="colorLeave('a38id')"></div>
+                            <div class="grid-item , b3" id="b38id" onclick="makeMove('b38id')"
+                                onmouseover="colorChange('b38id')" onmouseleave="colorLeave('b38id')"></div>
+                            <div class="grid-item , c3" id="c38id" onclick="makeMove('c38id')"
+                                onmouseover="colorChange('c38id')" onmouseleave="colorLeave('c38id')"></div>
+                        </div>
+                    </div>
+                    <div class="ggrid-item , gc3" id="gc3">
+                        <div class="sgrid-container">
+                            <div class="grid-item , a1" id="a19id" onclick="makeMove('a19id')"
+                                onmouseover="colorChange('a19id')" onmouseleave="colorLeave('a19id')"></div>
+                            <div class="grid-item , b1" id="b19id" onclick="makeMove('b19id')"
+                                onmouseover="colorChange('b19id')" onmouseleave="colorLeave('b19id')"></div>
+                            <div class="grid-item , c1" id="c19id" onclick="makeMove('c19id')"
+                                onmouseover="colorChange('c19id')" onmouseleave="colorLeave('c19id')"></div>
+                            <div class="grid-item , a2" id="a29id" onclick="makeMove('a29id')"
+                                onmouseover="colorChange('a29id')" onmouseleave="colorLeave('a29id')"></div>
+                            <div class="grid-item , b2" id="b29id" onclick="makeMove('b29id')"
+                                onmouseover="colorChange('b29id')" onmouseleave="colorLeave('b29id')"></div>
+                            <div class="grid-item , c2" id="c29id" onclick="makeMove('c29id')"
+                                onmouseover="colorChange('c29id')" onmouseleave="colorLeave('c29id')"></div>
+                            <div class="grid-item , a3" id="a39id" onclick="makeMove('a39id')"
+                                onmouseover="colorChange('a39id')" onmouseleave="colorLeave('a39id')"></div>
+                            <div class="grid-item , b3" id="b39id" onclick="makeMove('b39id')"
+                                onmouseover="colorChange('b39id')" onmouseleave="colorLeave('b39id')"></div>
+                            <div class="grid-item , c3" id="c39id" onclick="makeMove('c39id')"
+                                onmouseover="colorChange('c39id')" onmouseleave="colorLeave('c39id')"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="languageChoice">
+        <input type="radio" id="English" value="English" onchange="updateLanguage('English');" /> English
+        <br />
+        <input type="radio" id="Espanol" value="Spanish" onchange="updateLanguage('Spanish');" /> Español</br>
+        <input type="radio" id="Chinese" value="Chinese" onchange="updateLanguage('Chinese');" /> 中文
+        <br />
+        <input type="radio" id="Japanese" value="Japanese" onchange="updateLanguage('Japanese');" /> 日本語
+        <br />
+    </div>
+
+    <!-- changing player name, icon, or language causes the glitch. Why? Language change temporarily removed -->
+
+    <div id="rules" style="border-radius: 6px;">
+        <div id="sideBoard" class="sgrid-container" style="height: 95%">
+            <div class="grid-item , a1" id="a111id"> </div>
+            <div class="grid-item , b1" id="b111id"></div>
+            <div class="grid-item , c1" id="c111id"> </div>
+            <div class="grid-item , a2" id="a211id"> </div>
+            <div class="grid-item , b2" id="b211id"> </div>
+            <div class="grid-item , c2" id="c211id"> </div>
+            <div class="grid-item , a3" id="a311id"> </div>
+            <div class="grid-item , b3" id="b311id"> </div>
+            <div class="grid-item , c3" id="c311id"></div>
+        </div>
+        <a href="https://www.jesseblacklock.com/UTTTrules.php" target="_blank">
+            <span id="rLink" style="padding-bottom: 5px; margin-top: 20px; color: white;">RULES</span>
+        </a>
+    </div>
+
+    <div id="commentoggle">
+        <div>
+            <!-- the following line has been temporarily commented out to protect against a bug  -->
+            <a class="tooltip" style="color:white; text-decoration: none;">
+                <span style="width:100%; padding-top: 20px;" id="Player1Label">Player 1</span>
+                <!-- the following line has been temporarily commented out to protect against a bug  -->
+                <!-- <span class="tooltiptext">
+                    <input type="text" name="CharacterFirstName" value="" id="fname" onchange="popSummary('player1');" />
+                </span> -->
+            </a>
+        </div>
+        </br>
+        <div>
+            <!-- the following line has been temporarily commented out to protect against a bug  -->
+            <!-- <a class="tooltip" href="BeachHacksUTTT.php#">  -->
+            <img id="XsImg" src="Xes.png">
+            <!-- the following line has been temporarily commented out to protect against a bug  -->
+            <!-- <span class="tooltiptext">  <input type="file" name="Picture" id="Picture" accept="image/*" onchange="loadFile(event)" style="display:inline-block" /></span></a> -->
+        </div>
+        </br>
+    </div>
+    </div>
+
+    <div id="commentoggle2">
+        <div>
+            <!-- the following line has been temporarily commented out to protect against a bug  -->
+            <a class="tooltip" style="color:white;  text-decoration: none;">
+                <span style="width:100%; padding-top: 20px;" id="Player2Label">Player 2</span>
+                <!-- the following line has been temporarily commented out to protect against a bug  -->
+                <!-- <span class="tooltiptext">
+                    <input type="text" name="CharacterLastName" value="" id="lname" onchange="popSummary('player2');" />
+                </span> -->
+            </a>
+        </div>
+        </br>
+        <div>
+            <!-- the following line has been temporarily commented out to protect against a bug  -->
+            <!-- <a class="tooltip" href="BeachHacksUTTT.php#">  -->
+            <img id="OsImg" src="Oes.png">
+            <!-- the following line has been temporarily commented out to protect against a bug  -->
+            <!-- <span class="tooltiptext">  <input type="file" name="Picture" id="Picture" accept="image/*" onchange="lordFile(event)" style="display:inline-block" /></span></a> -->
+        </div>
+        </br>
+    </div>
+    </div>
+
+    <div id="pageBuffer"></div>
+
+
+    <!-- Chinese -->
+    <!-- 井字棋 -->
+    <!-- 播放机 -->
+    <!-- 胜 -->
+    <!-- 最终 -->
+
+    <!-- Japanese -->
+    <!-- ○×ゲーム -->
+    <!-- プレーヤー -->
+    <!-- 勝つ -->
+    <!-- 究極 -->
+
+    <!-- Spanish -->
+    <!-- Tic Tac Toe -->
+    <!-- jugador -->
+    <!-- gana -->
+    <!-- último -->
+
+    <!-- <div><span id="nofz"></span></div> -->
+
+
+</body>
+
+</html>

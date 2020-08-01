@@ -1,0 +1,396 @@
+body{
+    /* background: url('UTTTBackground.jpg') no-repeat;  */
+   background-attachment: fixed;
+   background-color: black;
+   background-size: cover;
+   font-family: Arial;
+    padding: 0;
+   margin: 0;
+   margin-top: -5px; 
+   /* overflow-y: scroll; */
+   
+}
+
+#GameBoard{
+    height: 100%;
+}
+
+.tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Tooltip text */
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 5px 15px;
+            border-radius: 6px;
+            /* Position the tooltip text */
+            position: absolute;
+            z-index: 100;
+            top: 95%;
+            /* transform: translateY(-10%); */
+            /* left: 0%; */
+            /* Fade in tooltip */
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        /* Tooltip arrow */
+
+        .tooltip .tooltiptext::after {
+            content: " ";
+            position: absolute;
+            top: 0%;
+            right: 50%;
+            /* To the left of the tooltip */
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #555 transparent transparent;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #title {
+            position: absolute;
+            top: 10.5%;
+            min-width: 45%;
+            background-color: black;
+            opacity: .8;
+            color: white;
+            font-size: 40px;
+            margin-left: 27.5%;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        #artcontainer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 20.5%;
+            height: 100%;
+            width: 100%;
+            max-width: 40%;
+            max-height: calc(70% - 55px);
+            display: inline-block;
+            margin: auto;
+            box-sizing: initial;
+        }
+
+        #art {
+            height: 100%;
+            width: same-as-height;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            opacity: .8;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #nav{
+            margin-top: 5px;
+        }
+
+        /* span {
+            position: relative;
+            float: left;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding-left: 10%;
+            padding-right: 10%;
+        } */
+
+        #commentoggle {
+            color: white;
+            background-color: #ff0000;
+            opacity: .8;
+            position: absolute;
+            height: auto;
+            text-align: center;
+            top: 20%;
+            left: 4%;
+            padding: 7px;
+            max-width: 25%;
+            font-size: 10px;
+            font-size: 1.5vw;
+            /* display: flex; */
+            /* align-items: center; */
+            justify-content: center;
+            border-radius: 8px;
+            box-sizing: initial;
+        }
+
+        #commentoggle2 img {
+            max-height: 200px;
+            max-width: auto;
+        }
+
+        #commentoggle img {
+            max-height: 200px;
+            max-width: auto;
+        }
+
+        #commentoggle2 {
+            color: white;
+            background-color: #0000ff;
+            opacity: .8;
+            position: absolute;
+            height: auto;
+            text-align: center;
+            top: 20%;
+            right: 4%;
+            padding: 7px;
+            max-width: 25%;
+            font-size: 10px;
+            font-size: 1.5vw;
+            /* display: flex; */
+            /* align-items: center; */
+            justify-content: center;
+            border-radius: 8px;
+            box-sizing: initial;
+        }
+
+        input[type=checkbox] {
+            width: 20px;
+            height: 20px;
+        }
+
+
+        .sgrid-container {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            grid-template-rows: 33% 33% 33%;
+            padding: 1px;
+           
+            height: 100%;
+            /* height: 26%; */
+            /* width: 27%; */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+            box-sizing: initial;
+            grid-template-rows: 33% 33% 33%;
+            padding: 7px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .grid-item {
+
+            border: 1px solid rgba(0, 0, 0, 0.0);
+            padding: 0px;
+            text-align: center;
+            
+        }
+
+        /* .grid-item:hover {
+            background-color: yellow;
+        } */
+
+        .ggrid-item {
+
+            border: 1px solid rgba(0, 0, 0, 0.0);
+            padding: 10px;
+            text-align: center;
+            /* height: calc(100%); */
+            height: calc(100% - 28px);
+        }
+
+        #rLink {
+            text-align: center;
+            top: 15%;
+        }
+
+        .center {
+            margin: auto;
+        }
+
+        #gameContainer {
+            position: relative;
+            height: auto;
+            width: 350px;
+            background-color: black;
+        }
+
+        .ga1 {
+            border-width: 4px;
+            border-right-color: grey;
+            border-bottom-color: grey;
+        }
+
+        .ga2 {
+            border-width: 4px;
+            border-top-color: grey;
+            border-bottom-color: grey;
+            border-right-color: grey;
+        }
+
+        .ga3 {
+            border-width: 4px;
+            border-right-color: grey;
+            border-top-color: grey;
+        }
+
+        .gb1 {
+            border-width: 4px;
+            border-right-color: grey;
+            border-bottom-color: grey;
+            border-left-color: grey;
+        }
+
+        .gb2 {
+            border-width: 4px;
+            border-right-color: grey;
+            border-bottom-color: grey;
+            border-left-color: grey;
+            border-top-color: grey;
+        }
+
+        .gb3 {
+            border-width: 4px;
+            border-right-color: grey;
+            border-top-color: grey;
+            border-left-color: grey;
+        }
+
+        .gc1 {
+            border-width: 4px;
+            border-left-color: grey;
+            border-bottom-color: grey;
+        }
+
+        .gc2 {
+            border-width: 4px;
+            border-left-color: grey;
+            border-bottom-color: grey;
+            border-top-color: grey;
+        }
+
+        .gc3 {
+            border-width: 4px;
+            border-left-color: grey;
+            border-top-color: grey;
+            /* outline-style:solid;
+            color: gold;  */
+            /* outline-offset: -5px; */
+        }
+
+        /* mini */
+
+        .a1 {
+            border-width: 2px;
+            border-right-color: white;
+            border-bottom-color: white;
+        }
+
+        .a2 {
+            border-width: 2px;
+            border-top-color: white;
+            border-bottom-color: white;
+            border-right-color: white;
+        }
+
+        .a3 {
+            border-width: 2px;
+            border-right-color: white;
+            border-top-color: white;
+        }
+
+        .b1 {
+            border-width: 2px;
+            border-right-color: white;
+            border-bottom-color: white;
+            border-left-color: white;
+        }
+
+        .b2 {
+            border-width: 2px;
+            border-right-color: white;
+            border-bottom-color: white;
+            border-left-color: white;
+            border-top-color: white;
+        }
+
+        .b3 {
+            border-width: 2px;
+            border-right-color: white;
+            border-top-color: white;
+            border-left-color: white;
+        }
+
+        .c1 {
+            border-width: 2px;
+            border-left-color: white;
+            border-bottom-color: white;
+        }
+
+        .c2 {
+            border-width: 2px;
+            border-left-color: white;
+            border-bottom-color: white;
+            border-top-color: white;
+        }
+
+        .c3 {
+            border-width: 2px;
+            border-left-color: white;
+            border-top-color: white;
+        }
+
+        #Victor {
+            text-align: center;
+            font-size: 70px;
+        }
+
+        #languageChoice {
+            background-color: black;
+            position: absolute;
+            /* bottom: 5%; */
+            left: 9%;
+            padding: 10px;
+            /* padding-bottom: 35px; */
+            height: auto;
+            color: white;
+            opacity: .75;
+            /* height: 13%; */
+            width: 8%;
+            border-radius: 6px;
+            bottom: calc(55px + 6%);
+            min-width: 100px;
+            box-sizing: initial;
+        }
+
+        #rules {
+            background-color: black;
+            position: absolute;
+            bottom: calc(55px + 6%);
+            right: 9%;
+            padding: 10px;
+            padding-bottom: 35px;
+            height: auto;
+            color: white;
+            opacity: .75;
+            height: 13%;
+            width: 8%;
+            border-radius: 6px;
+            box-sizing: initial;
+            text-align: center;
+        }
+        
