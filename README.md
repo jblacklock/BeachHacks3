@@ -1,1 +1,1 @@
-BeachHacks3
+Ultimate Tic-Tac-Toe is a game I learned sometime in high school. It's an enjoyable game so I thought I'd program my own version of it. The following project was created in 24 hours for CSULB's BeachHacks3. Ult-Tic-Tac-Toe ended up winning Best Internationalization. The code base is already many years old now and is in current need of some refactoring. While it is perfectly functional it is not completely responsive. Special thanks to Codeis.Software for their excellent panels at BeachHacks3.
